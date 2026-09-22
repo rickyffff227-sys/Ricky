@@ -37,3 +37,12 @@
 - 曾考虑的方案：继续由 Codex 从现有代码推断并自行扩展视觉规则；把当前样式直接登记为最终规范；区分现状记录与明确批准的设计。前两项均不符合 Ricky 本次要求。
 - 当前最终方案：`DESIGN_SYSTEM.md` 作为获批准的视觉和交互决策的权威来源。现有代码只登记在 `Current implementation`；只有 Ricky 明确表示设计已确认，或已与 ChatGPT 最终确认，才将具体方案写入 `Approved design`。两者冲突时以 `Approved design` 为实现目标。
 - 状态：用户已明确确认；替代 D-001 中的旧角色分工。
+
+## D-005｜Personal Digital Home 定位与首批正式设计约束
+
+- 日期：2026-09-23
+- 决策内容：网站长期定位为 Ricky Fu 的 Personal Digital Home / 个人数字主页；核心气质为好奇、理性、开放、包容、人文、克制。长期信息架构遵循 `Hero = Attitude`、`About = Identity`、`Work = Experience`、`Notes = Thinking`、`Now = Present`。
+- 为什么：网站需要跨越本科、升学与职业阶段持续使用；把阶段身份放在首屏会使核心表达随人生阶段迅速失效。
+- 曾考虑的方案：继续以求职、硕士申请或在线简历定义网站；继续在 Hero 展示 `OPEN TO OPPORTUNITIES`、`2027 GRADUATE` 等状态；直接重做整站。以上均不符合已确认的长期定位或本轮原型处理原则。
+- 当前最终方案：Hero 使用“在复杂中理解，在变化中成长。”与“我试着理解现实如何运转，也试着理解人与世界。”；Hero 不承载求职、学历、毕业年份等阶段信息。学校、专业、本科阶段、预计毕业时间、所在地和联系方式作为低层级 supporting information 放在 About 正文下方。本轮保留现有原型视觉和单页结构；Notes / Now 的最终形式、整体配色与字体系统继续待确认。
+- 状态：Ricky 与 ChatGPT 已明确确认，已写入 `DESIGN_SYSTEM.md` 的 `Approved design` 与 `Current Decisions`。

@@ -1,6 +1,6 @@
-# Ricky Fu · Personal Portfolio
+# Ricky Fu · Personal Digital Home
 
-基于 React + Vite 的个人网站。
+基于 React + Vite 的个人数字主页原型，用于记录经历、思考、成长与当下。求职、学校申请和简历展示是其中的使用场景。
 
 ## 本地运行
 
