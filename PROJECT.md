@@ -1,6 +1,8 @@
 # 项目长期上下文｜Ricky Fu 个人网页
 
-更新日期：2026-09-22。本文记录可从当前代码确认的状态；尚未由本人确认的内容会明确标为“待确认”。每次较大的功能、页面、设计或架构修改完成后，同步更新本文，并按需更新 [DECISIONS.md](./DECISIONS.md)、[CHANGELOG.md](./CHANGELOG.md) 和 [TODO.md](./TODO.md)。
+更新日期：2026-09-23。本文记录可从当前代码确认的状态；尚未由本人确认的内容会明确标为“待确认”。每次较大的功能、页面、设计或架构修改完成后，同步更新本文，并按需更新 [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)、[DECISIONS.md](./DECISIONS.md)、[CHANGELOG.md](./CHANGELOG.md) 和 [TODO.md](./TODO.md)。
+
+> Product and visual design decisions are made collaboratively by Ricky and ChatGPT. Codex serves primarily as the engineering implementation layer. `DESIGN_SYSTEM.md` is the source of truth for approved visual and interaction decisions.
 
 ## 项目目标
 
@@ -43,6 +45,7 @@
 
 ## 设计语言
 
+- 以下只是当前代码的视觉现状，尚非最终批准的设计规范；完整现状与批准状态见 [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)。
 - 浅灰白背景、深灰文字和低饱和蓝色强调，整体偏理性、清爽、留白较多。
 - 大字号中文标题与小号英文标签并用；圆形轨道、网格、渐变、首屏抽象循环视频构成主要视觉。
 - 页面最大版心约 1700px；CSS 在 1100px、760px、480px 设置响应式断点。
@@ -58,7 +61,7 @@
 
 ## 当前正在进行的内容
 
-本轮仅建立协作文档并核对现状，不进行大规模页面修改。下一轮网站改动尚未确定。
+本轮提取当前视觉与交互实现，建立 `DESIGN_SYSTEM.md`。具体设计方案仍待 Ricky 与 ChatGPT 确认；本轮不修改网页。
 
 ## 下一步计划
 
@@ -69,7 +72,8 @@
 
 ## 已确认的重要决策
 
-- 协作采用“代码仓库 + 项目上下文文档”模式；ChatGPT 负责定位、内容、UX/UI 方向与产品判断，Codex 负责读取真实代码、实现、调试、验证和维护工程状态。具体流程见 [DECISIONS.md](./DECISIONS.md)。
+- 协作采用“代码仓库 + 项目上下文文档”模式；Ricky 是所有者与最终决策者，Ricky 和 ChatGPT 共同承担产品与设计判断，Codex 主要承担工程实现。具体流程见 [DECISIONS.md](./DECISIONS.md)。
+- `DESIGN_SYSTEM.md` 区分 `Current implementation` 与 `Approved design`；只有 Ricky 明确确认的具体设计进入后者，代码实现优先遵循后者。
 - 本轮保留现有单页架构与视觉，不做大规模改版。现有技术与视觉选择属于代码现状，不推断其最初决策过程。
 - 外部建议（包括被标记为“ChatGPT 给出的建议”）须先对照当前代码和本文评估，再决定是否实施；影响已有架构或设计时先说明影响。
 
@@ -92,11 +96,11 @@
 
 ## 最近一次重要修改
 
-2026-09-22：检查现有源码、资源、README、构建与 lint 状态，建立长期协作文档。网页内容与样式未改。后续明显改动记录在 [CHANGELOG.md](./CHANGELOG.md)。
+2026-09-23：从现有源码提取视觉与交互现状，建立 `DESIGN_SYSTEM.md`，更新角色分工和设计决策权。网页内容与样式未改。后续明显改动记录在 [CHANGELOG.md](./CHANGELOG.md)。
 
 ## 协作与维护约定
 
-1. 新任务开始前先读本文，并用代码核对其中可能变化的事实；聊天记录仅作为补充。
+1. 新任务开始前先读本文与 `DESIGN_SYSTEM.md`，并用代码核对其中可能变化的事实；聊天记录仅作为补充。
 2. 对 ChatGPT 建议或其他外部方案，先说明与当前实现的适配性、收益及对架构/设计的影响；有冲突时以代码和证据为依据，不预设哪一方正确。
-3. 完成较大功能、页面、设计或架构改动后更新本文；重要取舍记入 `DECISIONS.md`，明显网站改动记入 `CHANGELOG.md`，待办同步到 `TODO.md`。
+3. 完成较大功能、页面、设计或架构改动后更新本文；获确认的视觉与交互决策记入 `DESIGN_SYSTEM.md` 的 `Approved design`，重要取舍记入 `DECISIONS.md`，明显网站改动记入 `CHANGELOG.md`，待办同步到 `TODO.md`。
 4. README 只维护运行、构建和部署说明。尽量小步提交，每条 Git commit message 写清修改目的。

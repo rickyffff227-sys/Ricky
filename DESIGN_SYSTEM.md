@@ -1,0 +1,217 @@
+# Ricky Fu — Personal Digital Home Design System
+
+更新日期：2026-09-23。依据 `src/App.jsx`、`src/App.css`、`src/index.css`、`index.html` 和现有媒体文件整理。本文件区分两种状态：
+
+- **Current implementation**：代码此刻实际采用的做法，仅供核对和后续讨论；不等于 Ricky 批准的最终设计。
+- **Approved design**：只有 Ricky 明确表示“这个设计已经确认”或“这是我与 ChatGPT 最终确认的设计方案”后，才把对应的具体视觉或交互方案写入。实现时优先遵循它；与当前代码冲突时，以它为修改目标。
+
+Ricky 是网站所有者和最终决策者。Ricky 与 ChatGPT 共同决定产品、视觉、信息架构、UX、内容表达及整体方向；Codex 主要负责工程实现、适配、动画、测试、性能和代码维护。未经确认，不因实现便利擅自重设整体设计语言或已确定的页面。用户在本次任务中给出的设计方向与禁忌记录在第 14 节；它们是执行约束，但不意味着当前 CSS 数值已获批准。
+
+## 1. Design Philosophy
+
+**Current implementation**
+
+- 现有页面以浅色背景、深色文字、低饱和蓝灰、宽留白、大幅中文标题和小号英文辅助标签营造较理性、安静的感觉。
+- 视觉重点落在首屏标题、经历卡片和联系区；部分抽象球体、网格、渐变和视频承担装饰作用。
+- 当前实现尚未经过 Ricky 与 ChatGPT 对整体视觉的最终确认。
+
+**Approved design**：暂无已确认的完整视觉理念或具体视觉参数。第 14 节记录 Ricky 当前明确给出的方向和禁忌；后续由 Ricky 与 ChatGPT 形成具体方案后再归档。
+
+## 2. Brand Identity
+
+**Current implementation**
+
+- 页面使用英文名 `Ricky Fu`；顶部文字标记是 `R·F` 加 `RICKY FU / PORTFOLIO`，联系区背景使用巨大的 `RF`。
+- favicon 是深色方形底上的字母 `R` 与蓝色圆点，并非顶部 `R·F` 的同一图形版本。
+- 页面围绕国际经济与贸易背景、市场研究、消费者洞察和数据整理展开；这是现有文案的定位，不自动视为最终品牌定位。
+- 文案以中文表达主要信息，以大写英文标签和短句辅助。现有代码未给出中文姓名，不能推断中文名或自行建立中英文名映射。
+- 整体语气偏克制、积极、第一人称；顶部 `OPEN TO OPPORTUNITIES` 属于当前代码文字。
+
+**Approved design**：英文名、RF 图形、中文名关系、Logo/Wordmark 最终组合与品牌语气的具体规范均待确认。
+
+## 3. Color System
+
+**Current implementation**：以下记录现有主要用途。`—` 表示目前只有硬编码色值，没有对应 CSS 变量。RGB 是 HEX 的等值表达，不表示另有一套颜色定义。现有 CSS 共出现 76 个不同 HEX 值及 26 种 `rgba()` 表达，渐变和装饰使用大量近似色；因此当前还不是统一的语义色系统。
+
+| 用途 | HEX | RGB | CSS variable / 当前使用 |
+| --- | --- | --- | --- |
+| Background：页面基础 | `#FFFFFF` | `rgb(255, 255, 255)` | —；`src/index.css` 的 `:root` 背景 |
+| Background：浅纸色 | `#F6F7F8` | `rgb(246, 247, 248)` | `--paper`；当前主要是声明，区块常用其他近似色 |
+| Background：经历区 | `#F5F7F8` | `rgb(245, 247, 248)` | —；`.work-section` |
+| Background：首屏后备 | `#EEF2F5` | `rgb(238, 242, 245)` | —；`.hero` |
+| Surface：卡片 | `#FFFFFF` | `rgb(255, 255, 255)` | —；`.experience-card` |
+| Primary Text | `#182024` | `rgb(24, 32, 36)` | `--ink`；根文字与部分悬停状态 |
+| Secondary Text：基础声明 | `#6D757E` | `rgb(109, 117, 126)` | `--muted`；实际次级文字多为其他硬编码灰色 |
+| Secondary Text：正文示例 | `#66717A` | `rgb(102, 113, 122)` | —；关于区正文 |
+| Border：基础声明 | `#DFE4E8` | `rgb(223, 228, 232)` | `--line`；关于信息与优势网格 |
+| Accent：基础声明 | `#637FAE` | `rgb(99, 127, 174)` | `--blue`；标记圆点与导航悬停等 |
+| Accent：大标题局部 | `#7189AE` | `rgb(113, 137, 174)` | —；首屏及联系区强调字 |
+| Hover：主按钮 | `#425E83` | `rgb(66, 94, 131)` | —；`.button-primary:hover` |
+| Hover：联系圆按钮 | `#54749A` | `rgb(84, 116, 154)` | —；`.contact-cta:hover` |
+| Selection：选中文字背景 | `#C9D8F5` | `rgb(201, 216, 245)` | —；`::selection` |
+| Selection：选中文字 | `#122B52` | `rgb(18, 43, 82)` | —；`::selection` |
+
+`--max:1700px` 是布局变量，不是颜色。当前没有单独的 `:active` 色、暗色模式 token 或暗色模式样式。首屏、头像占位、经历视觉和联系区还使用多层渐变与半透明白/蓝色，不能仅从上表还原完整画面；这些色值均保留在源码中，尚未归并。
+
+**Approved design**：背景、表面、文字、边框、强调、悬停、激活和未来暗色模式的具体色板均未确认。
+
+## 4. Typography
+
+**Current implementation**：根字体栈为 `Inter, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif`。项目没有引入 Inter 字体文件或网络字体，因此实际显示取决于设备已安装字体。未写明的行高或字重使用继承/浏览器默认值，不能补记为设计规范。
+
+| 层级 / 当前选择器 | 字号 | 字重 | 行高 | 字间距 |
+| --- | --- | --- | --- | --- |
+| Display：联系区 `.contact-main h2` | `clamp(70px, 8.5vw, 158px)`；断点另有覆盖 | `620` | `1.14` | `-.09em` |
+| H1：首屏 `.hero h1` | `clamp(65px, 6.45vw, 120px)`；1100、760、480px 下多次覆盖 | `650` | `1.27` | `-.085em`；760px 下 `-.08em` |
+| H2：区块标题 `.section-heading h2` | `clamp(50px, 5vw, 92px)`；760px 下 `clamp(42px, 8vw, 63px)` | `600` | `1.23` | `-.075em` |
+| H3：关于区 `.about-copy h3` | `clamp(35px, 3vw, 55px)`；760px 为 `36px`，480px 为 `29px` | `600` | `1.35` | `-.055em` |
+| H3：经历卡 `.experience-body h3` | `clamp(28px, 2.1vw, 38px)`；760px 为 `29px` | `600` | `1.38` | `-.055em` |
+| H3：优势卡 `.strength-card h3` | `25px` | 未单独设置 | 未单独设置 | `-.06em` |
+| Body：关于区 `.about-copy > p` | `16px`；760px 下 `14px` | 未单独设置 | `2.1` | 未单独设置 |
+| Body：经历卡 `.experience-body p` | `14px` | 未单独设置 | `1.9` | 未单独设置 |
+| Body：优势卡 `.strength-card p` | `13px` | 未单独设置 | `1.9` | 未单独设置 |
+| Caption / eyebrow 等共享选择器 | 多数 `11px`，局部 `8–10px` | 多数 `700` | 多数未单独设置 | 多数 `.18em` |
+| Navigation `.nav-links` | `13px` | `600` | 未单独设置 | `.04em` |
+| Project Number：经历卡 `.experience-top` | `10px`；480px 下 `8px` | `700` | 未单独设置 | `.18em` |
+
+中英文混排现状：主要段落用中文；英文标签常用大写与较宽字距；中文标题中的标点和换行在 JSX 中手工指定。当前没有统一的中英文空格、标点、缩写、数字或换行规范。
+
+**Approved design**：字体文件、字阶、混排和最小字号尚未确认。现有 8–11px 辅助文字需要结合可读性检查。
+
+## 5. Layout System
+
+**Current implementation**
+
+- 最大版心：`.page-width` 使用 `width: min(calc(100% - clamp(48px, 8vw, 160px)), var(--max))`，其中 `--max:1700px`；760px 及以下改为 `calc(100% - 40px)`，即左右各 20px。
+- Header 高度：桌面 88px，1100px 以下 76px，760px 以下 69px；header 自身左右 padding 为 `clamp(24px, 4vw, 80px)`，手机为 20px。
+- Grid：关于区两列比例 `.89fr / 1.11fr`；经历区为两列，第一张跨两列并内部分半；优势区 4 列、760px 以下 2 列、480px 以下 1 列；数字指标 4 列、760px 以下 2 列。
+- Section spacing：`.section-shell` 上/下为 `145/150px`；1100px 以下 `105/110px`；480px 以下 `80/85px`。
+- 阅读宽度：关于文案盒最大 690px、正文段落最大 600px；经历卡描述最大 440px。未定义全站统一的阅读宽度 token。
+- 断点：`max-width:1100px`、`760px`、`480px`；在 480px 另有第二条覆盖首屏标题大小。
+
+**Approved design**：最大宽度、列网格、区块节奏、边距和断点均未确认为最终规范。
+
+## 6. Spacing System
+
+**Current implementation**：没有 spacing CSS variables 或统一 scale。常见间距包括 20、22、24、25、28、30、32、35、36、40、42、45、48、50、55、60、65、70、78、80、85、105、110、120、145、150px；如经历网格 gap 为 22px，优势卡 padding 为 28px，区块标题下边距为 78px。它们来自当前选择器，不能解释为一套刻意设计的比例体系。
+
+**Approved design**：尚未确定。Ricky 给出的 `4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128` 是可讨论的示例，不自动替换现有数值。待 Ricky 与 ChatGPT 确认 scale 后再建立 token，并分步骤迁移。
+
+## 7. Components
+
+**Current implementation**：下表中的“动画”仅描述现有行为；没有写到的状态即未实现。多数组件是 JSX 结构与 CSS class 的组合，并非独立 React 组件。
+
+| 组件 | 使用场景与视觉规则 | Hover / Animation | Mobile 行为 |
+| --- | --- | --- | --- |
+| Navigation | 绝对定位于首屏顶部；左侧 `R·F` Wordmark，中间锚点，右侧联系胶囊按钮 | 导航链接换蓝；联系按钮变深底白字，`.2s` | 760px 以下折叠菜单；点击导航链接后关闭 |
+| Hero | 满屏背景视频、浅色遮罩、大标题、简介和两个 CTA | 主按钮上移 3px 且变蓝，`.25s`；背景视频循环 | 标题缩小、视频裁切点改到 66%、底部坐标文字隐藏 |
+| Project Card / Experience Item | 当前实际上是 `.experience-card`：上方分类、抽象视觉、标题、描述和机构日期；第一张更大 | 整卡上移 5px 并加阴影，箭头圆圈反色；卡片本身不是链接 | 两列改一列；第一张由左右排版改上下排版 |
+| Project Index | 当前未实现独立项目索引或项目详情目录 | 无 | 无 |
+| Section Header | `SectionHeading` 复用 eyebrow、标题及右侧说明 | 无 | 760px 以下隐藏右侧说明、缩小标题 |
+| About Block | 左侧人物占位视觉、右侧介绍和个人信息，底部数字指标 | 邮箱是下划线链接；无其他动画 | 变单列，数字指标改两列 |
+| Buttons / Links | 深色胶囊主按钮、文字链接、顶部联系按钮、联系区圆形邮件按钮 | 颜色变化或位移；圆形邮件按钮悬停旋转 45° | 主按钮缩小；圆形按钮缩小并移到标题下方 |
+| Tags / Labels | eyebrow 蓝点、英文小标签、卡片编号及辅助文字 | 多数无交互 | 部分缩小或隐藏 |
+| Footer | 版权、英文短句、返回顶部 | 返回顶部为锚点；无独立 hover 样式 | 换行，480px 以下隐藏英文短句 |
+| Image Container | `.portrait-card` 和 `.experience-visual` 当前均为 CSS 生成的占位画面；首屏为本地视频 | 经历视觉随卡片一起位移；无独立图片动画 | 容器高度变化，裁切随宽度变化 |
+
+**Approved design**：各组件的外观、状态、交互和手机端表现尚未逐项确认。后续新组件需依据 Ricky 与 ChatGPT 确认的设计方案补充规则。
+
+## 8. Motion System
+
+**Current implementation**
+
+- 页面进入、Scroll reveal、图片独立动画、页面切换：未实现。
+- 首屏视频：自动播放、静音、循环、行内播放；生成脚本定义 24 FPS × 96 帧，约 4 秒循环。
+- Hover：多数链接颜色过渡 `.2s`；按钮、卡片、优势卡约 `.25s`。CSS 未指定 easing，使用浏览器默认 `ease`。
+- 全站 `scroll-behavior:smooth`；`prefers-reduced-motion:reduce` 下切换为 `auto`，并极大缩短 CSS 动画与过渡，但没有停止 `<video>` 自动播放。
+
+**Approved design**：具体 easing、duration、入场、滚动、图片与页面切换方案未确认。Ricky 本次给出的动画方向是“克制、自然、服务内容，不为了炫技”。
+
+## 9. Imagery
+
+**Current implementation**
+
+- 真实项目图片、Screenshot、Photography、Mockup 与 Cover image 尚未提供或接入，不能推断最终图片风格。
+- 首页 `hero-motion.mp4` 与 `hero-poster.jpg` 由脚本生成，画幅 960×540（16:9）；视频采用 `object-fit:cover`，手机更改 `object-position`。
+- 人像区为 CSS 渐变、网格和抽象轮廓占位；经历图为渐变、圆轨道与球体占位。没有 `<img>` 作品图片及对应裁切/替代文本规则。
+- 经历图桌面常规高度 260px，首卡最小高度 390px；760px 以下常规 240px，480px 以下 220px。这是容器高度，不是批准的项目图片比例。
+- 卡片和人物图容器基本为直角；胶囊按钮为 `100px` 圆角，圆按钮与轨道为 `50%`。图片圆角、截图比例及裁切策略尚未确定。
+
+**Approved design**：项目图比例、封面、截图、摄影、Mockup、圆角和裁切规则均未确认。
+
+## 10. Responsive Design
+
+**Current implementation**
+
+- Desktop（>1100px）：全尺寸导航，关于区左右两列，经历区两列并突出首卡，优势区四列。
+- Tablet（761–1100px）：header 和区块留白缩小，优势区两列；关于区与经历区仍维持桌面式列结构，需实测阅读体验。
+- Mobile（≤760px）：导航改折叠菜单；关于区和经历区改一列；指标与优势先改两列，≤480px 时优势再改单列；部分辅助文字隐藏，首屏视频裁切调整。
+- Small mobile（≤480px）：进一步缩小标题、肖像区和卡片视觉。首屏 H1 在这个断点有两条同优先级规则，后一条覆盖前一条。
+- `body` 最小宽度 320px；尚无真实设备验收记录。手机布局并非仅整体缩放，但阅读层级和点击目标仍需实测。
+
+**Approved design**：具体断点与布局未确认。Ricky 本次要求单独保证手机端的信息层级和阅读体验。
+
+## 11. Writing & Content Style
+
+**Current implementation**
+
+- 标题和核心描述以中文为主；英文用于 section eyebrow、分类、编号、短标签与页脚。
+- 首页使用“你好，我是 Ricky Fu”；关于区使用“我希望”，整体有第一人称，但卡片采用概述句式，尚无统一叙述人称规则。
+- 经历标题为短句，如“从竞品资料，读懂消费市场。”；描述大致一至两句话，没有统一字数或成果结构。
+- 日期同时出现 `2026.07 — 2026.09`、`预计 2027.06 毕业`、`2024—2027`、动态版权年份；格式尚未统一。
+- 当前卡片标题并非“项目名称”，也没有独立项目标题格式。文案真实性与公开范围须由 Ricky 确认。
+
+**Approved design**：标题语言、混排比例、描述长度、第一人称、日期和项目命名规则均待 Ricky 与 ChatGPT 确认。
+
+## 12. Interaction Principles
+
+**Current implementation**
+
+- 导航与“返回顶部”通过页内锚点跳转；窄屏菜单用 React state 开合，点击其链接后关闭。
+- 联系方式使用 `mailto:` 与 `tel:`。目前没有站外链接，也没有专门的 external-link 图标/新窗口规则。
+- 经历卡片有悬停反馈和箭头视觉，却没有点击目标、项目打开方式或返回逻辑。
+- HTML 使用平滑滚动；减少动态效果偏好时关闭平滑滚动。
+- 有 hover 样式，但未单独定义 `:active`、`:focus-visible` 或菜单的 Escape/点外关闭行为。
+
+**Approved design**：导航、点击反馈、站外链接、项目打开与返回流程的具体规则尚未确认。
+
+## 13. Accessibility
+
+**Current implementation**
+
+- 有主导航 `aria-label`；菜单按钮有 `aria-expanded` 与 `aria-controls`；装饰性 SVG 和首屏视频标有 `aria-hidden`；邮件圆按钮有可读标签。
+- 全局未定义专用键盘焦点样式，当前依赖浏览器默认行为；未记录键盘导航实测。
+- 当前没有实际作品图片，所以没有作品图片 alt 规则。关于区占位图使用文字 `aria-label`。
+- 辅助文字最小可到 8–10px；颜色对比度未经测量，不能断言满足 WCAG。
+- CSS 部分处理 `prefers-reduced-motion`，但视频仍自动播放。
+
+**Approved design**：对比度目标、最小字号、焦点样式、图片替代文本与视频减动规则尚未形成经确认的数值规范；实现时仍应满足基本可访问性要求。
+
+## 14. Do / Don't
+
+**Ricky 在本次任务中给出的方向和禁忌**（用于约束后续讨论与实现；不等于当前 CSS 各项参数已获批准）：
+
+| DO | DON'T |
+| --- | --- |
+| 克制、清晰、有个人性格 | 模板化程序员 Portfolio |
+| 强调内容、留白 | 满屏渐变、无意义玻璃拟态 |
+| 编辑设计感、高质量排版 | 大量发光效果、过度圆角卡片 |
+| 动画自然且服务内容 | 无意义动画 |
+| 手机端有独立的信息层级与阅读体验 | 所有内容都塞进 Card；为了“高级”牺牲可读性 |
+
+## 15. Current Decisions
+
+- **Approved design**：截至本次建档，没有被 Ricky 明确标记为“设计已经确认”或“与 ChatGPT 最终确认”的具体视觉方案、色板、字阶、间距、组件样式或完整页面方案。此处暂不把现有代码的选择升级为最终规范。
+- **已确认的决策权与实施边界**：Ricky 是最终决策者；Ricky 与 ChatGPT 共同决定产品和设计；Codex 主要负责实现。Codex 不擅改整体设计语言或已确定页面；收到最终确认方案后，优先按本文件的 `Approved design` 实施。
+- **Current implementation**：当前代码的单页结构、浅色蓝灰视觉与组件行为记录在第 1–13 节，作为讨论基线，不自动获得批准。
+
+## 16. Open Design Questions
+
+1. Ricky 与 ChatGPT 最终确认的网站定位、情绪关键词和目标用户优先级是什么？
+2. `Ricky Fu`、中文名、`RF / R·F` 与 favicon 的关系如何统一？
+3. 哪些现有色彩、字号、间距、圆角和版式应保留？统一 token 与 spacing scale 如何确定？
+4. 是否需要暗色模式？若需要，配色及切换方式如何设计？
+5. 真实案例、封面图、肖像和截图的画幅、来源、裁切与展示规则是什么？
+6. 项目卡片是否可点，打开详情的方式与返回路径是什么？
+7. 动画程度、视频减动模式、焦点状态、对比度与最低字号如何确定？
+8. 手机端哪些信息应保留、重排或简化？需要在什么设备宽度上验收？

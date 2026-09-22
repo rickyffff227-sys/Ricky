@@ -24,6 +24,7 @@ npm run preview
 ## 项目文档
 
 - [PROJECT.md](./PROJECT.md)：目标、当前状态和长期协作上下文。
+- [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)：当前设计实现与已批准设计的区分。
 - [DECISIONS.md](./DECISIONS.md)：重要取舍及理由。
 - [CHANGELOG.md](./CHANGELOG.md)：明显改动记录。
 - [TODO.md](./TODO.md)：按优先级维护的待办。
