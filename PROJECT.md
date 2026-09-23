@@ -10,7 +10,7 @@
 
 ## 网站定位
 
-当前是中文为主、英文标签辅助的单页 `Prototype / v0.1`。已确认的长期信息架构逻辑是 `Hero = Attitude`、`About = Identity`、`Work = Experience`、`Notes = Thinking`、`Now = Present`。DD-006 进一步明确 About 是个人叙事，DD-007 将教育定义为 Experience / Journey；现有代码暂时实现 Hero、About、Work、优势与 Contact，Notes、Now、最终 About 内容和长期时间线形式尚未确定。页面尚未形成带过程、成果和佐证材料的完整案例集，也未发现已配置的线上发布环境。
+当前是中文为主、英文标签辅助的单页 `Prototype / v0.1`。已确认的长期信息架构逻辑是 `Hero = Attitude`、`About = Identity`、`Work = Experience`、`Notes = Thinking`、`Now = Present`。DD-006 明确 About 是个人叙事，DD-007 将教育定义为 Experience / Journey，DD-008 确认了 About 正式文案及其与 Hero 的连续叙事；现有代码暂时实现 Hero、About、Work、优势与 Contact，Notes、Now 和长期时间线形式尚未确定。页面尚未形成带过程、成果和佐证材料的完整案例集，也未发现已配置的线上发布环境。
 
 ## 目标用户
 
@@ -38,7 +38,7 @@
 
 1. 顶部导航：品牌标记、关于我、精选经历、个人优势、联系入口；窄屏显示菜单按钮。
 2. 首页 `#top`：视频背景、长期态度文案、查看经历与了解更多入口；不承载求职、学历或毕业阶段标签。
-3. 关于我 `#about`：当前代码包含个人简介、照片占位视觉、学校/专业/阶段/预计毕业时间/城市/邮箱次级信息栏和三项数字指标；其中身份信息栏已被 DD-006 标记为待移除或迁移，不再是批准方案。
+3. 关于我 `#about`：左侧照片占位视觉，右侧为 DD-008 正式个人叙事；学校/专业/阶段/预计毕业时间/城市/邮箱次级信息栏和三项数字指标仍在当前代码中，其中身份信息栏已被 DD-006 标记为待移除或迁移。
 4. 精选经历 `#work`：两段实习和一张学历与技能卡片；目前只有概述，没有案例详情或成果链接。
 5. 个人优势 `#strengths`：研究与洞察、数据整理、跨领域视角、沟通与表达四张卡片。
 6. 联系 `#contact`：邮箱、电话、所在地、返回顶部。
@@ -61,7 +61,7 @@
 
 ## 当前正在进行的内容
 
-本轮记录 DD-006 与 DD-007：About 改为个人叙事职责，教育改为 Experience / Journey。当前 About 身份信息栏等待后续移除或迁移；本轮不改页面代码、不撰写最终 About 文案。
+本轮记录并实现 DD-008：About 使用已确认的正式叙事文案，并与 Hero 形成连续叙事；同时建立 `Ricky Content Lens`。现有左右结构和低层级身份信息栏保持，后者等待后续迁移。
 
 ## 下一步计划
 
@@ -75,7 +75,7 @@
 
 - 协作采用“代码仓库 + 项目上下文文档”模式；Ricky 是所有者与最终决策者，Ricky 和 ChatGPT 共同承担产品与设计判断，Codex 主要承担工程实现。具体流程见 [DECISIONS.md](./DECISIONS.md)。
 - `DESIGN_SYSTEM.md` 区分 `Current implementation` 与 `Approved design`；只有 Ricky 明确确认的具体设计进入后者，代码实现优先遵循后者。
-- 网站长期定位是 Personal Digital Home；核心气质、信息架构、Hero 文案与内容边界已获批准。DD-006 与 DD-007 规定 About 使用个人叙事，教育作为 Experience；此前 About supporting information 方案已失效。
+- 网站长期定位是 Personal Digital Home；核心气质、信息架构、Hero 文案与内容边界已获批准。DD-006 与 DD-008 规定 About 的个人叙事职责及正式文案，DD-007 规定教育作为 Experience；此前 About supporting information 方案已失效。
 - 本轮保留现有单页架构与视觉，不做大规模改版。除明确批准的项目外，现有技术与视觉选择仍只属于代码现状。
 - 外部建议（包括被标记为“ChatGPT 给出的建议”）须先对照当前代码和本文评估，再决定是否实施；影响已有架构或设计时先说明影响。
 
@@ -98,7 +98,7 @@
 
 ## 最近一次重要修改
 
-2026-09-23：记录 DD-006 与 DD-007，明确 About 是个人叙事、教育是成长经历；将当前 About 身份信息栏标记为待移除或迁移。本轮网页代码未改。后续明显改动记录在 [CHANGELOG.md](./CHANGELOG.md)。
+2026-09-23：记录并实现 DD-008，将确认文案落入 About，建立 Hero → About 连续叙事与 `Ricky Content Lens`；保留现有左右结构，未强化待迁移身份信息栏。后续明显改动记录在 [CHANGELOG.md](./CHANGELOG.md)。
 
 ## 协作与维护约定
 

@@ -8,5 +8,6 @@
 .portrait-art::before{width:28%;height:29%;left:36%;top:17%;border-radius:47% 47% 46% 46%}
 .portrait-art::after{width:76%;height:64%;left:12%;bottom:-22%;border-radius:49% 49% 18% 18%}
 .portrait-initial{position:absolute;z-index:1;opacity:.35}
+.about-reflection strong{display:block;margin-top:7px;color:#465966;font-weight:600}
 
 @media(max-width:480px){.about-meta{grid-template-columns:1fr}.about-meta a{overflow-wrap:anywhere}}
