@@ -10,7 +10,7 @@
 
 ## 网站定位
 
-当前是中文为主、英文标签辅助的单页 `Prototype / v0.1`。已确认的长期信息架构逻辑是 `Hero = Attitude`、`About = Identity`、`Work = Experience`、`Notes = Thinking`、`Now = Present`。DD-006 明确 About 是个人叙事，DD-007 将教育定义为 Experience / Journey，DD-008 确认了 About 正式文案及其与 Hero 的连续叙事；现有代码暂时实现 Hero、About、Work、优势与 Contact，Notes、Now 和长期时间线形式尚未确定。页面尚未形成带过程、成果和佐证材料的完整案例集，也未发现已配置的线上发布环境。
+当前是中文为主、英文标签辅助的单页 `Prototype / v0.1`。已确认的长期信息架构逻辑是 `Hero = Attitude`、`About = Identity`、`Work = Experience`、`Notes = Thinking`、`Now = Present`。DD-006 明确 About 是个人叙事，DD-007 将教育定义为 Experience / Journey，DD-008 确认了 About 正式文案及其与 Hero 的连续叙事；现有代码暂时实现 Hero、About、Work、优势与 Contact，Notes、Now 和长期时间线形式尚未确定。页面尚未形成带过程、成果和佐证材料的完整案例集。当前生产环境由 Cloudflare Pages 托管：<https://ricky-etq.pages.dev>。
 
 ## 目标用户
 
@@ -56,20 +56,20 @@
 - 单页主要区块、锚点导航、移动端菜单、邮箱和电话链接已实现。
 - 首页视频与静态海报帧已放入本地资源，视频生成脚本可供后续重建。
 - 页面描述、标题和 favicon 已设置；构建与 Oxlint 命令可运行。
-- 截至 2026-09-22，`npm run build` 与 `npm run lint` 均通过。
-- **完成度判断**：可运行的展示基础版；内容证据、案例深度、实际设备验收与上线配置尚未完成，不能视为已发布的最终作品集。
+- 截至 2026-09-23，`npm run build` 与 `npm run lint` 均通过。
+- GitHub 仓库已连接 Cloudflare Pages；`main` 自动生产部署和非生产分支 Preview Deployments 已启用，构建命令为 `npm run build`，输出目录为 `dist`。
+- **完成度判断**：已发布的展示基础版；内容证据、案例深度与实际设备验收尚未完成，不能视为最终作品集。
 
 ## 当前正在进行的内容
 
-本轮记录并实现 DD-008：About 使用已确认的正式叙事文案，并与 Hero 形成连续叙事；同时建立 `Ricky Content Lens`。现有左右结构和低层级身份信息栏保持，后者等待后续迁移。
+网站基础版已部署到 Cloudflare Pages，并接通 GitHub 自动部署。页面设计与内容未因部署而调整；现有 About 低层级身份信息栏继续等待后续迁移。
 
 ## 下一步计划
 
 1. 核对公开信息、三项数字指标、经历时间与结果表述，并确认手机号等联系方式的公开范围。
 2. 补充至少一项可公开的真实案例材料：问题、本人职责、方法、结果、可展示图片或脱敏证据；据此决定是否增加案例详情。
 3. 由 Ricky 与 ChatGPT 逐项确认后，再决定 Notes / Now 的页面形式、最终配色与字体系统。
-4. 做桌面和手机实测，处理内容、交互与动效问题，再确定部署平台、域名及上线流程。
-5. 将本地 Git 仓库连接到本人选择的远程仓库，形成真正可共享的代码与文档来源。
+4. 做桌面和手机实测，处理内容、交互与动效问题；需要品牌域名时再配置 Cloudflare Pages 自定义域名。
 
 ## 已确认的重要决策
 
@@ -77,6 +77,7 @@
 - `DESIGN_SYSTEM.md` 区分 `Current implementation` 与 `Approved design`；只有 Ricky 明确确认的具体设计进入后者，代码实现优先遵循后者。
 - 网站长期定位是 Personal Digital Home；核心气质、信息架构、Hero 文案与内容边界已获批准。DD-006 与 DD-008 规定 About 的个人叙事职责及正式文案，DD-007 规定教育作为 Experience；此前 About supporting information 方案已失效。
 - 本轮保留现有单页架构与视觉，不做大规模改版。除明确批准的项目外，现有技术与视觉选择仍只属于代码现状。
+- 代码托管使用 GitHub 仓库 `rickyffff227-sys/Ricky`；生产部署使用 Cloudflare Pages，`main` 为生产分支，其他分支生成预览部署。
 - 外部建议（包括被标记为“ChatGPT 给出的建议”）须先对照当前代码和本文评估，再决定是否实施；影响已有架构或设计时先说明影响。
 
 ## 待确认问题
@@ -85,7 +86,7 @@
 - `04` 段跨领域实践、`03` 个出口业务目的地、`01` 项全国性竞赛奖项及各项经历表述，哪些可以公开，是否有可核对的依据？
 - 是否公开手机号？邮箱是否继续作为唯一主要联系入口？
 - 是否提供本人照片、案例图片、可公开成果、简历下载或外部资料链接？
-- 上线使用哪个 GitHub 仓库、部署平台、域名？是否需要英文版？
+- 是否需要自定义域名与英文版？
 
 ## 已知 Bug / 技术债
 
@@ -94,11 +95,10 @@
 - 页面数字指标及“公共传播、外贸业务”等经历在当前展示卡片中没有对应细节或证据，需在发布前核对；此处记录为内容风险，不断言事实错误。
 - 页面内容与结构集中在一个 `App.jsx` 中；新增案例、多受众版本或多语言时需要重新评估拆分方式。
 - 未发现自动化测试或实际浏览器验收记录；构建与 lint 通过不代表各设备视觉和交互已验收。
-- 当前未发现 Git 远程地址或部署配置；共享与上线方式待确定。
 
 ## 最近一次重要修改
 
-2026-09-23：记录并实现 DD-008，将确认文案落入 About，建立 Hero → About 连续叙事与 `Ricky Content Lens`；保留现有左右结构，未强化待迁移身份信息栏。后续明显改动记录在 [CHANGELOG.md](./CHANGELOG.md)。
+2026-09-23：将 GitHub 仓库连接到 Cloudflare Pages，发布 `ricky-etq.pages.dev`，并启用 `main` 自动生产部署与非生产分支 Preview Deployments；未修改页面设计或内容。后续明显改动记录在 [CHANGELOG.md](./CHANGELOG.md)。
 
 ## 协作与维护约定
 

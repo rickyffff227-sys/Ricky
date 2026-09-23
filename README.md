@@ -19,7 +19,18 @@ npm run build
 npm run preview
 ```
 
-`npm run build` 生成 `dist/`。部署到静态网站服务时以 `dist/` 为发布目录；本项目目前没有绑定具体托管平台或域名。
+`npm run build` 生成 `dist/`。
+
+## 线上部署
+
+- GitHub 仓库：<https://github.com/rickyffff227-sys/Ricky>
+- Cloudflare Pages：<https://ricky-etq.pages.dev>
+- 生产分支：`main`
+- Framework preset：React (Vite)
+- Build command：`npm run build`
+- Build output directory：`dist`
+
+Cloudflare Pages 已连接 GitHub。推送到 `main` 会自动更新生产环境；其他分支会自动生成 Preview Deployment。本项目当前没有需要在 Cloudflare 配置的环境变量。
 
 ## 项目文档
 

@@ -73,3 +73,11 @@
 - 实现方式：保留左侧视觉与右侧正文结构。核心起句使用明显但克制的层级；最后一句仅适度强调，不形成第二个 Hero。正文不拆成 Card，不增加技能或阶段身份标签。
 - 内部原则：建立 `Ricky Content Lens`，以后以“是否体现好奇、是否有自己的判断、是否容纳复杂性、是否最后记得人”检查 Work、Notes、Now 及其他内容。
 - 状态：Ricky 与 ChatGPT 已明确确认，正文已落入当前页面。
+
+## D-009｜使用 GitHub 与 Cloudflare Pages 持续部署
+
+- 日期：2026-09-23
+- 决策内容：代码继续托管在 `rickyffff227-sys/Ricky`，网站通过 Cloudflare Pages 发布。
+- 为什么：Vercel 账号验证暂时阻塞；Cloudflare Pages 可直接连接现有 GitHub 仓库，并满足公网预览与持续部署需求。
+- 当前最终方案：生产分支为 `main`，Framework preset 为 React (Vite)，构建命令为 `npm run build`，发布目录为 `dist`。`main` 的推送自动更新生产环境，所有非生产分支自动生成 Preview Deployment。
+- 状态：已实施；生产地址为 <https://ricky-etq.pages.dev>。部署没有改变网站视觉或页面内容。

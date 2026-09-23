@@ -2,6 +2,13 @@
 
 记录明显的网站功能、内容、设计和架构改动，以及会影响协作方式的工程变更。既有网页在本记录建立前的修改历史未知，不补写未经验证的发布日期。
 
+## 2026-09-23｜发布 Cloudflare Pages 生产环境
+
+- 将 GitHub 仓库 `rickyffff227-sys/Ricky` 连接到 Cloudflare Pages，生产地址为 <https://ricky-etq.pages.dev>。
+- 部署使用 React (Vite)、`npm run build`、`dist` 与生产分支 `main`。
+- 启用 `main` 自动生产部署和所有非生产分支的 Preview Deployments。
+- 部署过程未修改页面视觉、文案或 Design System。
+
 ## 2026-09-23｜落实 DD-008 About Narrative
 
 - 将确认的 About 文案逐字写入页面，保留左侧视觉与右侧正文结构。
