@@ -101,8 +101,8 @@ Ricky 是网站所有者和最终决策者。Ricky 与 ChatGPT 共同决定产�
 长期信息架构采用以下语义关系：
 
 - **Hero = Attitude**：表达 Ricky 的态度、观察世界的方式与网站整体气质。
-- **About = Identity**：表达 Ricky 是怎样的人，并承载当前现实身份与背景。
-- **Work = Experience**：展示经历、项目、研究、实习与作品。
+- **About = Identity**：通过个人叙事表达 Ricky 是怎样的人，不承担传统简历式身份或基本信息汇总。
+- **Work = Experience**：展示经历、项目、研究、实习、教育与作品；教育作为成长经历的一章进入长期 Journey / Experience。
 - **Notes = Thinking**：记录想法、观点、学习与思考。
 - **Now = Present**：记录当前正在关注、学习、研究或参与的事情。
 
@@ -135,9 +135,24 @@ Ricky 是网站所有者和最终决策者。Ricky 与 ChatGPT 共同决定产�
 
 - Hero 只承担 **Attitude**，不承担简历功能。它必须保持长期有效，不随 Ricky 从本科生变为研究生、职场人士或其他身份而失效。
 - Hero 不得放置本科生、求职状态、`OPEN TO OPPORTUNITIES`、`2027 GRADUATE`、毕业年份、学历标签或类似阶段性职业身份信息。
-- About 承担 **Identity**。About 主体文案表达“Ricky 是怎样的人”；学校、专业、本科阶段、预计毕业时间、所在城市和联系方式等阶段性信息放在正文下方的次级信息栏。
-- About 次级信息栏属于 supporting information：字号、颜色与层级低于主体文案，不做成 Hero 标签，也不抢正文注意力。
-- 其他组件的具体外观、状态、交互和手机端表现尚未逐项确认。
+
+### DD-006 — About = Personal Narrative
+
+- About 的任务是让访问者认识 Ricky 这个人，而不是快速读取 Ricky 的履历。
+- About 主体内容未来围绕：Ricky 如何观察世界、对哪些问题保持好奇、思考与判断方式、对经济、市场、人与社会的兴趣，以及当前仍在学习与变化的状态。
+- About 不使用本科生、`2027 Graduate`、求职状态、教育背景列表、大段学校 / 专业 / 毕业时间信息或技能罗列等典型简历式表达；也不使用“本人性格开朗”“具有较强 XX 能力”等简历式个人陈述。
+- 当前 About “左侧大视觉 + 右侧主体文字”的总体布局可以保留为设计基线。
+- 上一轮确认的“About 正文下方集中放置阶段身份 supporting information”方案不再有效。当前代码中的学校、专业、阶段、预计毕业时间、所在地与邮箱信息栏属于待移除或迁移的临时实现，不是 Approved design。
+- 本轮不撰写最终 About 文案，不重新设计完整 About，也不增加折叠式“简历信息抽屉”；等待后续正式内容与视觉细节确认。
+
+### DD-007 — Education as Experience
+
+- **Education is an experience, not a badge.**
+- 教育经历不作为 Hero 或 About 的核心身份标签。本科阶段是 Ricky 人生与成长经历中的一个章节。
+- 天津商业大学、国际经济与贸易专业、本科阶段及对应时间未来作为一段 `Experience / Journey` 内容，与实习、项目、研究、研究生阶段和工作经历共同组成长期个人时间线。
+- 具体毕业年份可以放在该段经历的详细信息中，无需出现在网站最显眼的位置。
+
+其他组件的具体外观、状态、交互和手机端表现尚未逐项确认。
 
 ## 8. Motion System
 
@@ -226,24 +241,39 @@ Ricky 是网站所有者和最终决策者。Ricky 与 ChatGPT 共同决定产�
 | 编辑设计感、高质量排版 | 大量发光效果、过度圆角卡片 |
 | 动画自然且服务内容 | 无意义动画 |
 | 手机端有独立的信息层级与阅读体验 | 所有内容都塞进 Card；为了“高级”牺牲可读性 |
-| 让 Hero 长期表达态度，把现实身份下沉到 About | 在 Hero 添加求职状态、毕业年份、学历或其他阶段性身份标签 |
+| 让 Hero 长期表达态度，让 About 进行个人叙事，把 Education 作为 Experience | 在 Hero / About 用学历、毕业年份或求职状态快速证明身份 |
 | 逐项确认后再写入 Approved design | 将 Current implementation 自动升级为 Approved design；未经确认确定 Notes / Now 形式 |
 
 ## 15. Current Decisions
 
 ### Approved design
 
+#### DD-006 — About = Personal Narrative
+
+- About 以个人叙事帮助访问者认识 Ricky，不提供传统简历式教育背景、基本信息或技能汇总。
+- 保留左侧大视觉与右侧主体文字的总体布局基线；最终文案与细节等待下一轮确认。
+- 原 About 次级身份信息栏不再是 Approved design；当前实现标记为待移除或迁移。
+- 不新增折叠式简历信息抽屉。
+
+#### DD-007 — Education as Experience
+
+- `Education is an experience, not a badge.`
+- 教育离开 Hero / About 的核心身份层级，未来作为长期 Experience / Journey 时间线中的一段经历，与实习、项目、研究、研究生阶段和工作经历并列。
+- 毕业年份只需存在于教育经历的详细信息中，不置于网站最显眼位置。
+
+#### Existing approved decisions
+
 - **长期定位**：网站是 Ricky Fu 的 **Personal Digital Home / 个人数字主页**，服务于自我了解、自我表达、成长记录、经历沉淀、思考记录与长期个人主页。求职、学校申请和简历展示只是使用场景。
 - **核心气质**：好奇、理性、开放、包容、人文、克制。
 - **长期信息架构**：`Hero = Attitude`、`About = Identity`、`Work = Experience`、`Notes = Thinking`、`Now = Present`。
 - **Hero 正式文案**：主标题为“在复杂中理解， / 在变化中成长。”；副标题为“我试着理解现实如何运转，也试着理解人与世界。”
 - **Hero 内容边界**：不承担简历功能；不放本科生、求职状态、`OPEN TO OPPORTUNITIES`、`2027 GRADUATE`、毕业年份、学历标签或类似阶段性身份信息。
-- **About 职责**：主体文案表达 Ricky 是怎样的人；当前学校、专业、阶段、预计毕业时间、所在地与联系方式等放在正文下方的低层级 supporting information 栏。
+- **About 职责**：按 DD-006 进行个人叙事，让访问者认识 Ricky 这个人；不承担教育背景、基本信息或技能汇总。
 - **原型处理原则**：当前仍是 `Prototype / v0.1`，不推倒重做。留白、浅色低饱和蓝灰、大字号标题、中英层级和 About / Experience / Contact 节奏可作为基线继续使用，但不等于全部批准。
 
 ### Current implementation and constraints
 
-- 本轮只更新 Hero 文案与内容边界，并补全 About 次级信息栏；保持现有单页结构、视频背景、主要区块、CTA 和整体视觉框架。
+- 当前代码仍显示 About 次级身份信息栏；DD-006 已撤销该方案的批准状态。该信息栏需在后续正式 About 设计中移除或迁移，本轮保持代码不动。
 - Notes 与 Now 只记录为未来信息架构语义；其最终页面形式尚未决定，当前不新增页面或组件。
 - 整体配色、最终字体系统、更多视觉元素与求职型标签均未获批准，不自行添加或替换。
 - `Current implementation` 继续只描述代码现状，不因本轮确认部分方向而整体升级为 `Approved design`。
@@ -258,6 +288,7 @@ Ricky 是网站所有者和最终决策者。Ricky 与 ChatGPT 共同决定产�
 4. 是否需要暗色模式？若需要，配色及切换方式如何设计？
 5. 真实案例、封面图、肖像和截图的画幅、来源、裁切与展示规则是什么？
 6. 项目卡片是否可点，打开详情的方式与返回路径是什么？
-7. Notes 与 Now 的页面形式、内容模型和导航关系是什么？在确认前保持未实现。
-8. 动画程度、视频减动模式、焦点状态、对比度与最低字号如何确定？
-9. 手机端哪些信息应保留、重排或简化？需要在什么设备宽度上验收？
+7. About 的最终个人叙事文案、现有身份信息栏的迁移位置及视觉细节是什么？在确认前不自行设计。
+8. Notes 与 Now 的页面形式、内容模型和导航关系是什么？在确认前保持未实现。
+9. 动画程度、视频减动模式、焦点状态、对比度与最低字号如何确定？
+10. 手机端哪些信息应保留、重排或简化？需要在什么设备宽度上验收？
