@@ -2,6 +2,16 @@
 
 记录明显的网站功能、内容、设计和架构改动，以及会影响协作方式的工程变更。既有网页在本记录建立前的修改历史未知，不补写未经验证的发布日期。
 
+## 2026-09-24｜完成第一次正式视觉改版
+
+- 将 DD-009、DD-010、DD-011 与 Paper · Ink · Oxide · Moss 色彩方向写入 Approved design。
+- 新增首次访问 Intro，只展示 `RICKY FU`，约 1.72 秒自动完成；同一浏览器后续访问跳过，减少动态效果时快速退出。
+- Hero 改为静态暖纸色编辑结构，加入独立名字层与“继续了解”入口，删除视频、底部信息栏、坐标、年份与 Scroll 提示。
+- About 保留左视觉与右正文，左侧改为未来可替换真实人像的暖纸色编辑占位，逐字保留 DD-008 文案。
+- 删除 About 的学校、专业、阶段、毕业时间、城市、邮箱 meta 信息栏，以及全部数字指标。
+- Work、Strengths 与 Contact 保持原有结构并同步暖色系统；未新增 Notes / Now 页面。
+- Oxlint 与 Vite 生产构建通过，并完成桌面浏览器视觉复核。
+
 ## 2026-09-23｜发布 Cloudflare Pages 生产环境
 
 - 将 GitHub 仓库 `rickyffff227-sys/Ricky` 连接到 Cloudflare Pages，生产地址为 <https://ricky-etq.pages.dev>。
