@@ -13,7 +13,7 @@ Ricky 是网站所有者和最终决策者。Ricky 与 ChatGPT 共同决定产�
 
 - 当前仍是单页 Prototype，已完成第一次正式视觉改版。
 - Intro、Hero、About 已采用暖纸色、深墨色与克制的编辑式视觉。
-- Work、Strengths、Contact 保持原有结构，颜色已同步转入暖色系统；具体内容与组件形式仍需逐项确认。
+- Work 与 Contact 保持原有结构，颜色已同步转入暖色系统；Strengths 已按 DD-012 重构为 How I Work。
 
 **Approved design**
 
@@ -84,6 +84,7 @@ Ricky 是网站所有者和最终决策者。Ricky 与 ChatGPT 共同决定产�
 - **Hero = Attitude**：表达 Ricky 的态度、观察世界的方式与网站气质。
 - **About = Identity**：通过个人叙事表达 Ricky 是怎样的人。
 - **Work = Experience**：展示经历、项目、研究、实习、教育与作品。
+- **How I Work = Method**：表达 Ricky 如何理解问题、形成判断并开始行动。
 - **Notes = Thinking**：记录想法、观点、学习与思考。
 - **Now = Present**：记录当前关注、学习、研究或参与的事情。
 
@@ -91,10 +92,10 @@ Notes 与 Now 当前只作为长期信息架构原则，不新增页面、路由
 
 **Current implementation**
 
-- 单页锚点结构保持不变：Hero、About、Selected Experience、Strengths、Contact。
+- 单页锚点结构保持不变：Hero、About、Selected Experience、How I Work、Contact。
 - 最大版心约 1700px；主要断点为 1100px、760px、480px。
 - Hero 使用全屏静态结构；About 保持左侧视觉、右侧正文。
-- Work、Strengths 与 Contact 的结构本轮未重做。
+- Work 与 Contact 的结构仍沿用当前实现；How I Work 已采用编辑式两列方法宣言结构。
 
 ## 6. Approved Component Decisions
 
@@ -178,6 +179,41 @@ Notes 与 Now 当前只作为长期信息架构原则，不新增页面、路由
 - 这些事实若未来仍有价值，应在 Experience 中以具体经历表达。
 - About 保持连续的个人叙事与阅读节奏。
 
+### DD-012 — Strengths → How I Work
+
+- 原 Strengths 区域正式重构为 **How I Work / 我如何工作**。
+- 核心表达从“我具备哪些能力”转为：**我是如何理解问题、形成判断、再开始行动的。**
+- Section label：**03 / HOW I WORK**。
+- 中文主标题：
+  - **理解问题，**
+  - **形成判断，再开始行动。**
+- 四项正式方法原则：
+
+#### 01 — 先理解，再判断。
+
+> 面对一个陌生的问题，我通常不会急着给出答案。先弄清背景、条件和不同立场，再决定自己怎么看。
+
+#### 02 — 让事实支撑判断。
+
+> 无论研究市场、经济还是具体项目，我更愿意从资料、数据和真实情况出发，而不是先有结论，再去寻找证明。
+
+#### 03 — 给复杂性留下空间。
+
+> 很多问题并不存在简单的二选一答案。不同的声音会让我重新检查自己的判断，也允许我在得到新信息后改变原来的看法。
+
+#### 04 — 最后，仍然回到人。
+
+> 数字、市场、技术和制度最终都会影响真实的人。我希望理解它们如何运转，也不忽略身处其中的人的选择、关系与处境。
+
+- 四项内容是 Ricky 的 method / working principles，分别对应理解问题、建立判断、面对复杂性与回到人本身。
+- 它与 Hero、About、Experience 构成连续叙事：Hero = Attitude、About = Identity、Experience = Journey、How I Work = Method。
+- 视觉采用 Editorial / Manifesto-style layout，删除技能卡片、能力标签、技能图标、功能 Feature Grid 和数据战绩。
+- 桌面端在 section label 与中文主标题下使用 2 × 2 双列结构；每项包含编号、中文标题、说明文字和细分隔线。
+- 手机端改为四段纵向排列，保持编号、标题、正文及充足留白。
+- 编号作为结构编号，不作为 KPI；分隔使用细线、弱结构与留白。
+- 第四项“最后，仍然回到人。”可用 Oxide 编号或短线及稍高字重轻度强调，不形成 CTA。
+- 交互只保留轻微文字位移或颜色反馈；不使用翻转、大幅缩放或复杂 hover 动效。
+
 ## 7. Motion System
 
 **Current implementation**
@@ -220,6 +256,7 @@ Notes 与 Now 当前只作为长期信息架构原则，不新增页面、路由
 **Approved design**
 
 - 手机端必须保持清晰的信息层级和阅读体验。
+- How I Work 在桌面使用双列四项，在手机使用单列四段。
 - 具体断点、最小字号、对比度目标与真实人像替代文本规则仍待确认。
 
 ## 10. Writing & Content Style
@@ -246,6 +283,7 @@ Notes 与 Now 当前只作为长期信息架构原则，不新增页面、路由
 | 使用 Paper、Ink 与充足留白 | 回退到冷蓝灰科技模板风格 |
 | 让 Hero 表达长期态度 | 在 Hero 放求职、学历或毕业阶段标签 |
 | 让 About 进行个人叙事 | 在 About 汇总学校、技能、联系方式和数字战绩 |
+| 让 How I Work 展示方法原则 | 使用能力标签、技能图标、四卡片 Feature Grid 或 KPI 数字 |
 | 使用真实人像与克制编辑处理 | 科技球体、宇宙轨道、商务证件照框 |
 | 用轻量文字入口连接 About | 厚重营销式 CTA |
 | 逐项确认后写入 Approved design | 自行增加 Notes / Now 页面或扩写正式文案 |
@@ -260,13 +298,14 @@ Notes 与 Now 当前只作为长期信息架构原则，不新增页面、路由
 - **DD-009**：首次 Intro 与静态编辑式 Hero。
 - **DD-010**：About 使用真实人像与半抽象编辑处理方向。
 - **DD-011**：删除 About metrics。
+- **DD-012**：Strengths 重构为 How I Work，以编辑式方法原则展示替代能力卡片。
 - **Color Direction**：Paper · Ink · Oxide · Moss。
 - **长期定位**：Personal Digital Home。
-- **长期信息架构**：Hero = Attitude、About = Identity、Work = Experience、Notes = Thinking、Now = Present。
+- **长期信息架构**：Hero = Attitude、About = Identity、Work / Experience = Journey、How I Work = Method、Notes = Thinking、Now = Present。
 
 ### Current implementation
 
-- DD-009、DD-010 与 DD-011 已落地。
+- DD-009、DD-010、DD-011 与 DD-012 已落地。
 - Intro 首次完整播放并自动退出；回访时跳过。
 - Hero 已删除视频、底部信息和模板化 Scroll 提示。
 - About 已删除学校、专业、阶段、毕业时间、城市、邮箱 meta 信息栏。
@@ -274,15 +313,15 @@ Notes 与 Now 当前只作为长期信息架构原则，不新增页面、路由
 - About 正文逐字保留 DD-008。
 - About 左侧已完成可供未来真实人像替换的编辑式占位结构。
 - 单页结构保持不变；Notes 与 Now 未新增。
-- Work、Strengths 和 Contact 已同步暖色系统，具体结构尚未作为新 Approved design。
-- 字体系统、真实照片、项目图片与 Strengths 的下一轮内容结构仍待确认。
+- How I Work 已替代 Strengths：桌面为 2 × 2 编辑式方法布局，手机为四段单列；第四项使用 Oxide 编号与短线轻度强调。
+- Work 与 Contact 已同步暖色系统，具体结构仍待后续确认。
+- 字体系统、真实照片与项目图片仍待确认。
 
 ## 13. Open Design Questions
 
 1. 最终人像采用什么画幅、姿态、背景、色调与裁切方式？
-2. Strengths 是否改为 `How I Work`，其正式内容与视觉结构如何定义？
-3. Experience 如何演进为长期 Journey，卡片是否需要详情？
-4. 最终字体系统、字号、间距和小号英文标签的可读性如何统一？
-5. Notes 与 Now 的页面形式、内容模型和导航关系是什么？
-6. 项目截图、摄影和 Mockup 的展示规则是什么？
-7. 是否需要暗色模式、自定义域名或英文版？
+2. Experience 如何演进为长期 Journey，卡片是否需要详情？
+3. 最终字体系统、字号、间距和小号英文标签的可读性如何统一？
+4. Notes 与 Now 的页面形式、内容模型和导航关系是什么？
+5. 项目截图、摄影和 Mockup 的展示规则是什么？
+6. 是否需要暗色模式、自定义域名或英文版？

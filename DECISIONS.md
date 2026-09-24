@@ -112,3 +112,13 @@
 - 决策内容：全站从冷蓝灰转向暖纸色编辑系统。核心颜色为 Paper `#F3F0E9`、Ink `#1C1C18`、Muted `#716D65`、Oxide `#8C4938`、Moss `#687267`、Line `#D8D2C7` 与 Deep Ink `#171714`。
 - 使用原则：Intro 使用 Deep Ink，Hero 与 About 使用 Paper，Oxide 与 Moss 只作小范围辅助；整体保持人文、纸张、克制的感受。
 - 状态：Ricky 与 ChatGPT 已正式确认；当前页面已实施。
+
+## DD-012｜Strengths → How I Work
+
+- 日期：2026-09-24
+- 决策内容：原 Strengths 正式改为 How I Work，表达 Ricky 如何理解问题、形成判断并开始行动。
+- 正式内容：四项方法原则为“先理解，再判断。”“让事实支撑判断。”“给复杂性留下空间。”“最后，仍然回到人。”，正文逐字使用 Ricky 与 ChatGPT 确认版本。
+- 叙事关系：Hero = Attitude、About = Identity、Experience = Journey、How I Work = Method。
+- 视觉方案：删除技能卡片、能力标签与图标，改用 Editorial / Manifesto 式结构；桌面 2 × 2，手机单列四段，使用细线、结构编号和留白。
+- 强调规则：第四项仅使用 Oxide 编号与短线、略高标题字重轻度强调。
+- 状态：Ricky 与 ChatGPT 已正式确认；当前页面已实施。
