@@ -69,7 +69,7 @@
 
 ## 当前正在进行的内容
 
-DD-012 How I Work 已完成代码实现和文档同步，等待推送后由 Cloudflare Pages 自动发布。
+DD-012 How I Work 已完成代码实现、文档同步与 Cloudflare Pages 自动发布。
 
 ## 下一步计划
 
